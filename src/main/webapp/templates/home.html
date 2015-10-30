@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.5/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.5/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen" />
+
+    <link href="../resources/css/core.css" rel="stylesheet"/>
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+            th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"/>
+    <script href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.5/js/bootstrap.min.js"
+            th:src="@{/webjars/bootstrap/3.3.5/js/bootstrap.min.js}"/>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row" th:replace="fragments/header :: header">
+    </div>
+    <div class="row">
+        <div class="col-md-2" th:replace="fragments/sidebar :: sidebar">
+        </div>
+        <div class="col-md-10">
+            <div class="container">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Descripcion Menu</th>
+                        <th>Link</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="menu : ${menus}">
+                        <td th:text="${menu.idenMenuMnu}">idenMenuMnu</td>
+                        <td th:text="${menu.nombMenuMnu}">nombMenuMnu</td>
+                        <td th:text="${menu.pagiMenuMnu}">pagiMenuMnu</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div th:replace="fragments/footer :: footer"></div>
+</div>
+</body>
+</html>
