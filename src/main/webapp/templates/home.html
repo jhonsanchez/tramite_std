@@ -10,6 +10,11 @@
             th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"/>
     <script href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.5/js/bootstrap.min.js"
             th:src="@{/webjars/bootstrap/3.3.5/js/bootstrap.min.js}"/>
+    <script>
+        $(document).ready(function(){
+            $("#datatable").DataTable();
+        });
+    </script>
 </head>
 <body>
 <div class="container-fluid">
@@ -20,7 +25,7 @@
         </div>
         <div class="col-md-10">
             <div class="container">
-                <table class="table">
+                <table class="table" id="datatable">
                     <thead>
                     <tr>
                         <th>Id</th>
