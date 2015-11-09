@@ -10,6 +10,7 @@ package pe.com.ebuho.repository;/**
  */
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -25,4 +26,6 @@ import pe.com.ebuho.model.MaeArea;
 
 public interface MaeAreaRepository extends JpaRepository<MaeArea,BigDecimal> {
     List<MaeArea> findByDescAreaAre(String descAreaAre);
+    List<MaeArea> findByDescAreaAreIgnoreCaseAndFlagEstaAre(String descAreaAre,BigInteger flagEstaAre);
+    List<MaeArea> findByFlagEstaAre(BigInteger flagEstaAre);
 }

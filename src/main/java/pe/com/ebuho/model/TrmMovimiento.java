@@ -1,9 +1,6 @@
 package pe.com.ebuho.model;
 
-import javax.persistence.Basic;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -14,6 +11,7 @@ import java.sql.Timestamp;
  */
 @Entity
 @Table(name = "TRM_MOVIMIENTO", catalog = "")
+@IdClass(TrmMovimientoPK.class)
 public class TrmMovimiento implements Serializable{
     private BigDecimal idenExpeTrm;
 

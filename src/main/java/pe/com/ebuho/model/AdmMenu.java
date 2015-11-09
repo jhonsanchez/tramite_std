@@ -25,8 +25,8 @@ public class AdmMenu {
     private BigInteger flagEstaMnu;
     private BigInteger flagMenuMnu;
     private BigInteger flagProcMnu;
-    private Collection<AdmMenuModulo> admMenuModulosByIdenMenuMnu;
-    private Collection<AdmPermisoMenu> admPermisoMenusByIdenMenuMnu;
+    /*private Collection<AdmMenuModulo> admMenuModulosByIdenMenuMnu;
+    private Collection<AdmPermisoMenu> admPermisoMenusByIdenMenuMnu;*/
 
     @Id
     @Column(name = "IDEN_MENU_MNU")
@@ -210,7 +210,7 @@ public class AdmMenu {
                 '}';
     }
 
-    @OneToMany(mappedBy = "admMenuByIdenMenuMnu")
+    /*@OneToMany(mappedBy = "admMenuByIdenMenuMnu")
     public Collection<AdmMenuModulo> getAdmMenuModulosByIdenMenuMnu() {
         return admMenuModulosByIdenMenuMnu;
     }
@@ -226,5 +226,5 @@ public class AdmMenu {
 
     public void setAdmPermisoMenusByIdenMenuMnu(Collection<AdmPermisoMenu> admPermisoMenusByIdenMenuMnu) {
         this.admPermisoMenusByIdenMenuMnu = admPermisoMenusByIdenMenuMnu;
-    }
+    }*/
 }
