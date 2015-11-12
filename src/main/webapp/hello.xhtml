@@ -22,6 +22,14 @@
             <prime:panel header="JSF 2.2 Bean Access">
                 #{helloWorldBean.hello}
             </prime:panel>
+            <h:selectOneMenu class="item-login" value="#{helloWorldBean.idEmpresa}" id="comboUnidad">
+                <f:selectItem itemLabel="TODOS" itemValue="0" />
+                <f:selectItems value="#{helloWorldBean.empresas}" var="sis"
+                               itemLabel="#{sis.nombMenuMnu}" itemValue="#{sis.idenMenuMnu}" />
+                <prime:ajax update="comboUnidad"
+                        listener="#{helloWorldBean.listarUnidadNegocios}" process="@this"/>
+            </h:selectOneMenu>
+            <prime:commandButton value="Register" action="#{helloWorldBean.hello}"/>
         </h:form>
     </h:body>
 </f:view>
