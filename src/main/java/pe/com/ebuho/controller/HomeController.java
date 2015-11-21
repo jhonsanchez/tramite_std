@@ -14,18 +14,18 @@ import pe.com.ebuho.repository.AdmMenuRepository;
  * Created by John on 10/29/2015.
  */
 @Controller
-@RequestMapping("/home")
+@RequestMapping("/mypage")
 public class HomeController {
     @Autowired
     private AdmMenuRepository admMenuRepository;
     @RequestMapping(method = RequestMethod.GET)
     public String home(Model model){
         model.addAttribute("menus",admMenuRepository.findAll());
-        return "home";
+        return "mypage";
     }
     @RequestMapping("/{page}/{size}")
     public String homePagination(Model model,@PathVariable("page") int page, @PathVariable("size") int size){
         model.addAttribute("menus",admMenuRepository.findAll());
-        return "home";
+        return "mypage";
     }
 }

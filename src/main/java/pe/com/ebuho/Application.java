@@ -12,6 +12,9 @@ import org.springframework.boot.context.embedded.FilterRegistrationBean;
 import org.springframework.boot.context.embedded.ServletContextInitializer;
 import org.springframework.boot.context.embedded.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.servlet.ViewResolver;
+import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import pe.com.ebuho.model.AdmMenu;
 import pe.com.ebuho.repository.AdmMenuRepository;
 
@@ -54,8 +57,18 @@ public class Application {
             servletContext.setInitParameter("primefaces.THEME", "bootstrap");
             servletContext.setInitParameter("primefaces.CLIENT_SIDE_VALIDATION", Boolean.TRUE.toString());
             servletContext.setInitParameter("javax.faces.FACELETS_SKIP_COMMENTS", Boolean.TRUE.toString());
+            servletContext.setInitParameter("javax.faces.PARTIAL_STATE_SAVING", Boolean.TRUE.toString());
+            servletContext.setInitParameter("javax.faces.PROJECT_STAGE", "Development");
             servletContext.setInitParameter("primefaces.FONT_AWESOME", Boolean.TRUE.toString());
             servletContext.setInitParameter("primefaces.UPLOADER", "commons");
         };
     }
+    @Bean
+    public ViewResolver getViewResolver() {
+        InternalResourceViewResolver resolver = new InternalResourceViewResolver();
+        resolver.setPrefix("/views/");
+        resolver.setSuffix(".html");
+        return resolver;
+    }
+
 }
