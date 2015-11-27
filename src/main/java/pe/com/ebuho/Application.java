@@ -5,6 +5,7 @@ import javax.servlet.DispatcherType;
 import org.primefaces.webapp.filter.FileUploadFilter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,6 +16,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import pe.com.ebuho.controller.ThemeController;
 import pe.com.ebuho.model.AdmMenu;
 import pe.com.ebuho.repository.AdmMenuRepository;
 
@@ -54,7 +56,7 @@ public class Application {
     public ServletContextInitializer servletContextInitializer() {
         return servletContext -> {
             servletContext.setInitParameter("com.sun.faces.forceLoadConfiguration", Boolean.TRUE.toString());
-            servletContext.setInitParameter("primefaces.THEME", "spark");
+            servletContext.setInitParameter("primefaces.THEME", "spark"+"#{themeView.color}");
             servletContext.setInitParameter("primefaces.CLIENT_SIDE_VALIDATION", Boolean.TRUE.toString());
             servletContext.setInitParameter("javax.faces.FACELETS_SKIP_COMMENTS", Boolean.TRUE.toString());
             servletContext.setInitParameter("javax.faces.PARTIAL_STATE_SAVING", Boolean.TRUE.toString());
