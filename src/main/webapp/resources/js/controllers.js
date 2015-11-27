@@ -1,14 +1,44 @@
 (function(angular) {
     var AppController = function($scope, $http, SpringDataRestAdapter) {
-        var httpPromise = $http.get('/admMenus').success(function (response) {
-            $scope.response = angular.toJson(response, true);
-        });
+        $scope.maxSize = 5;
+        $scope.size = 5;
+        $scope.status = {
+            isopen: false
+        };
 
-        SpringDataRestAdapter.process(httpPromise).then(function (processedResponse) {
-            $scope.items = processedResponse._embeddedItems;
-            $scope.processedResponse = angular.toJson(processedResponse, true);
-        });
+        $scope.getListMenu = function(){
+            if($scope.currentPage==null)
+                $scope.currentPage=1;
+            var currentPage = $scope.currentPage-1;
+            var httpPromise = $http.get('/rest/admMenus?page='+currentPage+'&size='+$scope.size).success(function (response) {
+                $scope.response = angular.toJson(response, true);
+            });
 
+            SpringDataRestAdapter.process(httpPromise).then(function (processedResponse) {
+                $scope.items = processedResponse._embeddedItems;
+                $scope.processedResponse = angular.toJson(processedResponse, true);
+                $scope.totalItems = processedResponse.page.totalElements;
+            });
+        }
+        $scope.getListMenuAll = function(){
+            var httpPromise = $http.get('/rest/admMenus').success(function (response) {
+                $scope.response = angular.toJson(response, true);
+            });
+
+            SpringDataRestAdapter.process(httpPromise).then(function (processedResponse) {
+                $scope.itemsAll = processedResponse._embeddedItems;
+                $scope.processedResponse = angular.toJson(processedResponse, true);
+            });
+        }
+        $scope.getListMenu();
+        $scope.getListMenuAll();
+        $scope.setSize= function (size) {
+            $scope.size = size;
+            $scope.getListMenu();
+        }
+        $scope.pageChanged = function() {
+            $scope.getListMenu();
+        };
 
         /*Item.query(function(response) {
             $scope.items = response ? response : [];
