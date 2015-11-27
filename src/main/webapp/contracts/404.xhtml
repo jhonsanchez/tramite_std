@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <f:facet name="first">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+            <meta name="apple-mobile-web-app-capable" content="yes" />
+        </f:facet>
+        <title>PrimeFaces Spark</title>
+        <h:outputScript name="js/layout.js" library="spark-layout" />
+        <ui:insert name="head" />
+    </h:head>
+
+    <h:body>
+        
+        <div id="layout-portlets-cover">
+            <div class="other-pages-box Container40 Responsive50 MarAuto Fnone TexAlCenter ShadowGray MarTop10"
+                 style="margin-top:5%; background-image:url(#{resource['spark-layout:images/loginpageillust.svg']}); background-repeat:no-repeat; background-position:center; background-size:cover;">
+                <div class="Container90 Fnone MarAuto TexAlCenter">
+                    <div class="EmptyBox50"></div>
+                    <h:graphicImage name="images/error-face.svg" library="spark-layout" styleClass="MarAuto MarTop20 Wid30"/>
+                    <span class="Fs100 Wid100 DispBlock red">404</span>
+                    <span class="Wid100 DispBlock Fs30 red">Page Not Found !</span><br/>
+                    <span class="Wid100 DispBlock Fs18 red">Sorry, but the resource you are looking <br/> for has not been found.<br/>
+                    </span>
+                    <div class="EmptyBox30"></div>
+                    <p:button  value="Back to Dashboard" styleClass="Fs16 RedButton" href="dashboard.xhtml"></p:button>
+                    <div class="EmptyBox50"></div>
+                </div>
+            </div>
+        </div>
+        
+        <h:outputStylesheet name="css/core-layout.css" library="spark-layout" />
+        <h:outputStylesheet name="css/font-awesome.css" library="spark-layout" />
+        <h:outputStylesheet name="css/animate.css" library="spark-layout" />
+        <h:outputStylesheet name="css/spark-layout.css" library="spark-layout" />
+    </h:body>
+
+</html>
