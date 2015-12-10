@@ -1,22 +1,26 @@
-<ui:composition xmlns="http://www.w3.org/1999/xhtml"
-                xmlns:h="http://java.sun.com/jsf/html"
-                xmlns:f="http://java.sun.com/jsf/core"
-                xmlns:ui="http://java.sun.com/jsf/facelets"
-                xmlns:p="http://primefaces.org/ui"
-                template="/template.xhtml"
-                contracts="spark-layout">
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        contracts="#{contractView.contract}-layout">
 
-    <ui:define name="content">
-        <div class="layout-portlets-box">
-            <div class="Container100">
-                <div class="ContainerIndent TexAlCenter">
-                    <h1 class="BigTopic TexAlCenter">Empty Page</h1>
-                    <p:panel header="Hola mundo"></p:panel>
-                    <span class="gray">Use this page to start from scratch and place your custom content.</span>
+    <ui:composition template="/template.xhtml">
+
+        <ui:define name="content">
+            <div class="layout-portlets-box">
+                <div class="Container100">
+                    <div class="ContainerIndent TexAlCenter">
+                        <h1 class="BigTopic TexAlCenter">Empty Page</h1>
+                        <p:panel header="Hola mundo"></p:panel>
+                    <span class="gray">Use this page to start from scratch and place your custom content.
+                        #{contractView.contract}
+                    </span>
+                    </div>
                 </div>
             </div>
-        </div>
-        
-    </ui:define>
 
-</ui:composition>
+        </ui:define>
+
+    </ui:composition>
+</f:view>

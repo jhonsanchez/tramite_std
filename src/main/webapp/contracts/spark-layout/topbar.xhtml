@@ -4,8 +4,8 @@
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:h="http://java.sun.com/jsf/html"
     xmlns:ui="http://java.sun.com/jsf/facelets">
-    
-    
+
+<h:form>
     <div id="layout-topbar" class="ShadowGray">
     	<div id="layout-topbar-indent">
         	<a href="dashboard.xhtml"><h:graphicImage name="images/LOGO.svg" styleClass="Fleft" library="spark-layout" id="logo" class="Fleft"/></a>
@@ -18,7 +18,13 @@
                 </li>
                 <li class="fa fa-ellipsis-v menu-separator"></li>
                 <li>
-                	<a href="#" class="Animated05"><i class="fa fa-gear fa-spin"></i> Settings</a>
+                	<a class="Animated05 CursPointer"><i class="fa fa-gear fa-spin"></i>Settings</a>
+                    <ul style="width:200px; margin-left:-45px;" class="Animated03 submenu">
+                        <!--<li><a href="#" class="Animated05"><i class="fa fa-flag red"></i> English</a></li>-->
+                        <!--<li><a href="#" class="Animated05"><i class="fa fa-flag red"></i> German</a></li>-->
+                        <li class="Animated05"><h:commandLink actionListener="#{contractView.changeContract('sentinel')}" ajax="false"><i class="icon-sun"></i>Sentinel</h:commandLink></li>
+                        <li class="Animated05"><h:commandLink actionListener="#{contractView.changeContract('spark')}" ajax="false"><i class="icon-sun"></i>Spark</h:commandLink></li>
+                    </ul>
                 </li>
                 <li class="fa fa-ellipsis-v menu-separator"></li>
                 <li>
@@ -55,5 +61,5 @@
             </ul>
         </div>
     </div>
-    
+</h:form>
 </ui:composition>

@@ -1,5 +1,6 @@
 package pe.com.ebuho.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import java.io.Serializable;
@@ -10,7 +11,7 @@ import java.io.Serializable;
 @Component("themeView")
 @Scope("session")
 public class ThemeController implements Serializable {
-
+    @Autowired ContractController contractController;
     private String color;
 
     public String getColor() {
@@ -22,7 +23,7 @@ public class ThemeController implements Serializable {
     }
 
     public void change(String color) {
-        if(color.equals("green"))
+        if(color.equals("green")||contractController.equals("sentinel"))
             this.color = null;
         else
             this.color = "-" + color;
